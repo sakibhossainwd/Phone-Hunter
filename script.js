@@ -44,6 +44,12 @@ const displayPhonesDetails = phones => {
                   <button class="btn btn-warning">See Details</button>
                 </div>
         `
+        if(div.innerHTML === ""){
+            const notFoundShow = document.getElementById('notfount-show');
+            notFoundShow.innerHTML = `
+            <h1 class="text-warning fw-bold text-center">Your Brand Not Found</h1>
+            `
+        }
         phonesContainer.appendChild(div);
     });
 }
