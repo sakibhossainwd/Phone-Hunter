@@ -49,15 +49,23 @@ const displayPhonesDetails = phones => {
         phonesContainer.appendChild(div);
     });
 }
-
+loadPones('iphone');
 // modal part
 const loadPhoneDetails = idPhone => {
     const url = `https://openapi.programming-hero.com/api/phone/${idPhone}`
     fetch(url)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => PhonesDetails(data))
 }
 
+const PhonesDetails = phone => {
+    console.log(phone)
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.innerHTML = `
+    <h4>Brand: ${phone.brand}</h4>
+    <h4>Slug: ${phone.slug}</h4>
+    `
+}
 
+loadPhoneDetails('apple_iphone_13_pro_max-11089');
 
-loadPones('iphone');
