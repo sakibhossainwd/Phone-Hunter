@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phone Hunter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- fonstAwsome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<!-- css link -->
+<link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- cover part -->
+    <section>
+        <div class="cover">
+            <img class="img-fluid" src="./img/cover.jpg" alt="Placeholder-Image">
+            <div class="content">
+                <h1 class="fw-bolder">Explore Your Favorite Phones</h1>
+                <p class="w-75 m-auto mb-3">Fast software updates for many years: The biggest advantage iOS has over Android is its software updates:</p>
+                <div class="search-box">
+                    <input id="seach-Field" class="py-2 ps-3 pe-5 w-50 rounded" type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" />
+                    <button onclick="serachMeals()" class="btn btn-warning px-4 py-2">Search</button>
+                </div>
+        </div>
+    </section>
+<!-- main showing phone part -->
+<main class="w-75 m-auto mt-5">
+    <section>
+        <div id="phones-container" class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+            
+          </div>
+    </section>
+</main>
+
+
+
+
+    <!-- script file -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
