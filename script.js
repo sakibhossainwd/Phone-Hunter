@@ -41,18 +41,23 @@ const displayPhonesDetails = phones => {
                 <div class="card-body">
                   <h5 class="card-title">Name: ${phone.phone_name}</h5>
                   <h6 class="card-title">Slug: ${phone.slug}</h6>
-                  <button class="btn btn-warning">See Details</button>
+                  <button onclick="loadPhoneDetails(${phone.slug})" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    See Details
+  </button>
                 </div>
         `
-        if(div.innerHTML === ""){
-            const notFoundShow = document.getElementById('notfount-show');
-            notFoundShow.innerHTML = `
-            <h1 class="text-warning fw-bold text-center">Your Brand Not Found</h1>
-            `
-        }
         phonesContainer.appendChild(div);
     });
 }
+
+// modal part
+const loadPhoneDetails = idPhone => {
+    const url = `https://openapi.programming-hero.com/api/phone/${idPhone}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
+
 
 
 loadPones('iphone');
