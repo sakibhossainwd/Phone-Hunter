@@ -26,9 +26,10 @@ const displayPhonesDetails = phones => {
         const div = document.createElement('div');
         div.classList.add("card");
         div.innerHTML = `
-        <img src="${phone.image}" class="card-img-top img-fluid" alt="...">
+        <img src="${phone.image}" class="card-img-top py-3" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Name: ${phone.phone_name}</h5>
+                  <h6 class="card-title">Slug: ${phone.slug}</h6>
                   <button class="btn btn-warning">See Details</button>
                 </div>
         `
