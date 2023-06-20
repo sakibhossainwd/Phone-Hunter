@@ -1,7 +1,7 @@
 // async await
 const loadPones = async(inputValue) => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
-    console.log(url)
+    // console.log(url)
     // add error and async await
     try{
         const res = await fetch(url);
@@ -13,27 +13,12 @@ const loadPones = async(inputValue) => {
     }
 };
 
-const phoneDetails = () => {
-    const inputField = document.getElementById('seach-Field');
-    const inputValue = inputField.value;
-    loadPones(inputValue);
-    inputField.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          document.getElementById("search-btn").click();
-        }
-      });
-      
-    inputField.value = ""
-}
-
-
 const displayPhonesDetails = phones => {
     // console.log(phones);
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
     phones.forEach(phone => {
-        // console.log(phone);
+        // console.log(phone.slug);
         const div = document.createElement('div');
         div.classList.add("card");
         div.innerHTML = `
@@ -49,17 +34,34 @@ const displayPhonesDetails = phones => {
         phonesContainer.appendChild(div);
     });
 }
-loadPones('iphone');
+
+const phoneDetails = () => {
+    const inputField = document.getElementById('seach-Field');
+    const inputValue = inputField.value;
+    loadPones(inputValue);
+    inputField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("search-btn").click();
+        }
+      });
+      
+    inputField.value = ""
+}
+
 // modal part
-const loadPhoneDetails = idPhone => {
-    const url = `https://openapi.programming-hero.com/api/phone/${idPhone}`
+const loadPhoneDetails = phoneId => {
+    // console.log(phoneId);
+    const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
     fetch(url)
     .then(res => res.json())
     .then(data => PhonesDetails(data))
 }
 
 const PhonesDetails = phone => {
-    console.log(phone)
+    // console.log(phone)
+    const modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = `${phone.name}`
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = `
     <h4>Brand: ${phone.brand}</h4>
@@ -67,5 +69,6 @@ const PhonesDetails = phone => {
     `
 }
 
-loadPhoneDetails('apple_iphone_13_pro_max-11089');
+
+loadPones('iphone');
 
