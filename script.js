@@ -1,6 +1,7 @@
 // async await
-const loadPones = async() => {
-    const url = `https://openapi.programming-hero.com/api/phones?search=samsung`
+const loadPones = async(inputValue) => {
+    const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
+    console.log(url)
     // main async await steps
 
     // const res = await fetch(url);
@@ -19,10 +20,11 @@ const loadPones = async() => {
 };
 
 const displayPhonesDetails = phones => {
-    console.log(phones);
+    // console.log(phones);
     const phonesContainer = document.getElementById('phones-container');
+    phonesContainer.innerHTML = ""
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         const div = document.createElement('div');
         div.classList.add("card");
         div.innerHTML = `
@@ -37,5 +39,19 @@ const displayPhonesDetails = phones => {
     });
 }
 
+const phoneDetails = () => {
+    const inputField = document.getElementById('seach-Field');
+    const inputValue = inputField.value;
+    loadPones(inputValue);
+    inputField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("search-btn").click();
+        }
+      });
+      
+    inputField.value = ""
+}
 
-loadPones();
+
+loadPones('iphone');
