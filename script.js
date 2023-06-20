@@ -2,12 +2,6 @@
 const loadPones = async(inputValue) => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     console.log(url)
-    // main async await steps
-
-    // const res = await fetch(url);
-    // const data = await res.json();
-    // displayMealDetails(data)
-
     // add error and async await
     try{
         const res = await fetch(url);
