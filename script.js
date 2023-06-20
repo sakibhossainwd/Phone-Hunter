@@ -19,6 +19,21 @@ const loadPones = async(inputValue) => {
     }
 };
 
+const phoneDetails = () => {
+    const inputField = document.getElementById('seach-Field');
+    const inputValue = inputField.value;
+    loadPones(inputValue);
+    inputField.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("search-btn").click();
+        }
+      });
+      
+    inputField.value = ""
+}
+
+
 const displayPhonesDetails = phones => {
     // console.log(phones);
     const phonesContainer = document.getElementById('phones-container');
@@ -37,20 +52,6 @@ const displayPhonesDetails = phones => {
         `
         phonesContainer.appendChild(div);
     });
-}
-
-const phoneDetails = () => {
-    const inputField = document.getElementById('seach-Field');
-    const inputValue = inputField.value;
-    loadPones(inputValue);
-    inputField.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          document.getElementById("search-btn").click();
-        }
-      });
-      
-    inputField.value = ""
 }
 
 
