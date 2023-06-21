@@ -14,22 +14,23 @@ const loadPones = async(inputValue) => {
 };
 
 const displayPhonesDetails = phones => {
-    // console.log(phones);
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
     phones.forEach(phone => {
         // console.log(phone.slug);
         const div = document.createElement('div');
-        div.classList.add("card");
+        div.classList.add("col");
         div.innerHTML = `
-        <img src="${phone.image}" class="card-img-top py-3" alt="...">
+        <div class="card p-3">
+        <img src="${phone.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Name: ${phone.phone_name}</h5>
-                  <h6 class="card-title">Slug: ${phone.slug}</h6>
-                  <button onclick="loadPhoneDetails(${phone.slug})" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <h5 class="card-title fw-bold">Name: ${phone.phone_name}</h5>
+                  <p class="fw-medium">Slug: ${phone.slug}</p>
+                  <button onclick="loadPhoneDetails(${phone.slug}) "type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
     See Details
   </button>
                 </div>
+        </div>
         `
         phonesContainer.appendChild(div);
     });
@@ -50,23 +51,8 @@ const phoneDetails = () => {
 }
 
 // modal part
-const loadPhoneDetails = phoneId => {
-    // console.log(phoneId);
-    const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
-    fetch(url)
-    .then(res => res.json())
-    .then(data => PhonesDetails(data))
-}
-
-const PhonesDetails = phone => {
-    // console.log(phone)
-    const modalTitle = document.getElementById('exampleModalLabel');
-    modalTitle.innerText = `${phone.name}`
-    const modalContainer = document.getElementById('modal-container');
-    modalContainer.innerHTML = `
-    <h4>Brand: ${phone.brand}</h4>
-    <h4>Slug: ${phone.slug}</h4>
-    `
+const loadPhoneDetails = phoneSlug => {
+    console.log(phoneSlug)
 }
 
 
