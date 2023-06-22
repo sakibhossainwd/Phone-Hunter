@@ -103,8 +103,8 @@ loadPones('iphone');
 
 
 // modal part
-const loadModalDetails = async(modalDetails) => {
-    const url = `https://openapi.programming-hero.com/api/phones?search=${modalDetails}`
+const loadModalDetails = async(phoneSlug) => {
+    const url = `https://openapi.programming-hero.com/api/phone/${phoneSlug}`
     // console.log(url)
     // add error and async await
     try{
@@ -120,12 +120,13 @@ const loadModalDetails = async(modalDetails) => {
 
 
 const displayModalDetails= (phone) => {
-    console.log(phone)
+    console.log(phone.brand)
     // const modalTitle = document.getElementById('modal-title');
     const detailsContainer = document.getElementById('details-container');
+    detailsContainer.innerHTML = ''
     const modalBody = document.createElement('div');
     modalBody.innerHTML = `
-    <h2>Brand: ${phone.phone_name}</h2>
+    <h3>Brand: ${phone.brand}</h3>
     `
     console.log('modal is clicked');
     detailsContainer.appendChild(modalBody);
