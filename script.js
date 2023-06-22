@@ -57,6 +57,7 @@ const displayPhonesDetails = (phones, dataLimit) => {
     toggleSpinner(false)
 }
 
+
 const processSearch = (dataLimit) => {
     // start reload spiner
     toggleSpinner(true)
@@ -70,18 +71,22 @@ const processSearch = (dataLimit) => {
 // handle seaach button click
 document.getElementById('search-btn').addEventListener('click', function(){
     processSearch(6)
+
     if(inputValue === ''){
         alert('Please Enter your phone name');
     }
 
-    // inputField.addEventListener("keypress", function(event) {
-    //             if (event.key === "Enter") {
-    //               event.preventDefault();
-    //               document.getElementById("search-btn").click();
-    //             }
-    //           });
-
 })
+
+// serach field will when press Enter
+const input = document.getElementById('seach-Field');
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    //   document.getElementById("search-btn").click();
+    //   or
+    processSearch(6);
+    }
+  });
 
 const toggleSpinner = isLoading => {
     const reloadSpiner = document.getElementById('reload-spiner');
