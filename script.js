@@ -21,7 +21,7 @@ const displayPhonesDetails = (phones, dataLimit) => {
     const showMore = document.getElementById('show-more');
     if(dataLimit && phones.length > 6){
         phones = phones.slice(0, 6)
-        showMore.classList.add('d-none');
+        showMore.classList.remove('d-none');
     }
     else{
         showMore.classList.add('d-none');
@@ -63,6 +63,7 @@ const processSearch = (dataLimit) => {
     const inputField = document.getElementById('seach-Field');
     const inputValue = inputField.value;
     loadPones(inputValue, dataLimit);
+    // inputField.value = '';
 }
 
 
@@ -97,4 +98,4 @@ document.getElementById('btn-show-all').addEventListener('click', function(){
     processSearch()
 })
 
-loadPones('iphone');
+// loadPones('iphone');
