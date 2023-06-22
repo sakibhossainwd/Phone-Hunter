@@ -141,7 +141,7 @@ const displayModalDetails= (phone) => {
         <li>Sensors: ${phone.mainFeatures.sensors[0]}</li>
         <li>Storage: ${phone.mainFeatures.storage}</li>
     </ul>
-    <h5>ReleaseDate: ${phone.releaseDate}</h5>
+    <h5>ReleaseDate: ${phone.releaseDate  ? phone.releaseDate : 'No Release Date Found'}</h5>
     `
     console.log('modal is clicked');
     detailsContainer.appendChild(modalBody);
