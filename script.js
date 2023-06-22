@@ -36,7 +36,7 @@ const displayPhonesDetails = (phones, dataLimit) => {
     }
     // display all phones
     phones.forEach(phone => {
-        // console.log(phone.slug);
+        // console.log(phone);
         const div = document.createElement('div');
         div.classList.add("col");
         div.innerHTML = `
@@ -45,7 +45,7 @@ const displayPhonesDetails = (phones, dataLimit) => {
                 <div class="card-body mt-3">
                   <h5 class="card-title fw-bold">Name: ${phone.phone_name}</h5>
                   <p class="fw-medium">Slug: ${phone.slug}</p>
-                  <button onclick="loadPhoneDetails('${phone.slug}') "type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button onclick="loadModalDetails('${phone.slug}') "type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
     See Details
   </button>
                 </div>
@@ -102,15 +102,30 @@ document.getElementById('btn-show-all').addEventListener('click', function(){
 loadPones('iphone');
 
 
-
 // modal part
-const loadPhoneDetails = () => {
+const loadModalDetails = async(modalDetails) => {
+    const url = `https://openapi.programming-hero.com/api/phones?search=${modalDetails}`
+    // console.log(url)
+    // add error and async await
+    try{
+        const res = await fetch(url);
+        const data = await res.json();
+        displayModalDetails(data.data)
+    }
+    catch(error){
+        console.log('Error:- ', error)
+    }
+};
+
+
+
+const displayModalDetails= (phone) => {
+    console.log(phone)
     // const modalTitle = document.getElementById('modal-title');
-    
     const detailsContainer = document.getElementById('details-container');
     const modalBody = document.createElement('div');
     modalBody.innerHTML = `
-    <h2>Brand: ${phone.brand}</h2>
+    <h2>Brand: ${phone.phone_name}</h2>
     `
     console.log('modal is clicked');
     detailsContainer.appendChild(modalBody);
