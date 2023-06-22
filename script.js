@@ -16,15 +16,17 @@ const loadPones = async(inputValue) => {
 const displayPhonesDetails = phones => {
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
+    // limited phone show
     phones =phones.slice(0, 6)
-
     // dislay no phone found
     const noPhone = document.getElementById('no-phone');
+    // reloard spiner
+    const reloadSpiner = document.getElementById('reload-spiner')
     if(phones.length === 0){
-        noPhone.classList.remove('d-none')
+        noPhone.classList.remove('d-none');
     }
     else {
-        noPhone.classList.add('d-none')
+        noPhone.classList.add('d-none');
     }
     // display all phones
     phones.forEach(phone => {
