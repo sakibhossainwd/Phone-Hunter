@@ -41,7 +41,7 @@ const displayPhonesDetails = (phones, dataLimit) => {
         div.classList.add("col");
         div.innerHTML = `
         <div class="card p-3 mb-3">
-        <img src="${phone.image}" class="card-img-top" alt="...">
+        <img src="${phone.image}" class="card-img-top height m-auto" alt="...">
                 <div class="card-body mt-3">
                   <h5 class="card-title fw-bold">Name: ${phone.phone_name}</h5>
                   <p class="fw-medium">Slug: ${phone.slug}</p>
@@ -149,4 +149,4 @@ const displayModalDetails= (phone) => {
 
 
 // defult perameter for phone loeaded
-// loadPones('iphone');
+loadPones('iphone');
