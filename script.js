@@ -103,8 +103,6 @@ document.getElementById('btn-show-all').addEventListener('click', function(){
     processSearch()
 })
 
-// defult perameter for phone loeaded
-loadPones('iphone');
 
 
 // modal part
@@ -149,3 +147,6 @@ const displayModalDetails= (phone) => {
 }
 
 
+
+// defult perameter for phone loeaded
+// loadPones('iphone');
