@@ -45,7 +45,7 @@ const displayPhonesDetails = (phones, dataLimit) => {
                 <div class="card-body mt-3">
                   <h5 class="card-title fw-bold">Name: ${phone.phone_name}</h5>
                   <p class="fw-medium">Slug: ${phone.slug}</p>
-                  <button onclick="loadPhoneDetails(${phone.slug}) "type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button onclick="loadPhoneDetails('${phone.slug}') "type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
     See Details
   </button>
                 </div>
@@ -98,4 +98,12 @@ document.getElementById('btn-show-all').addEventListener('click', function(){
     processSearch()
 })
 
-// loadPones('iphone');
+// defult perameter for phone loeaded
+loadPones('iphone');
+
+
+
+// modal part
+
+
+
