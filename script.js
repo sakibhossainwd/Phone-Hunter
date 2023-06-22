@@ -16,10 +16,11 @@ const loadPones = async(inputValue, dataLimit) => {
 const displayPhonesDetails = (phones, dataLimit) => {
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
+    // phones = phones.slice(0, 3)
     // limited phone show
     const showMore = document.getElementById('show-more');
-    if(dataLimit && phones.length > 10){
-        phones = phones.slice(0, 3)
+    if(dataLimit && phones.length > 6){
+        phones = phones.slice(0, 6)
         showMore.classList.add('d-none');
     }
     else{
@@ -29,7 +30,6 @@ const displayPhonesDetails = (phones, dataLimit) => {
     const noPhone = document.getElementById('no-phone');
     if(phones.length === 0){
         noPhone.classList.remove('d-none');
-        // showMore.classList.add('d-none')
     }
     else {
         noPhone.classList.add('d-none');
@@ -58,6 +58,7 @@ const displayPhonesDetails = (phones, dataLimit) => {
 }
 
 const processSearch = (dataLimit) => {
+    // start reload spiner
     toggleSpinner(true)
     const inputField = document.getElementById('seach-Field');
     const inputValue = inputField.value;
@@ -67,21 +68,17 @@ const processSearch = (dataLimit) => {
 
 // handle seaach button click
 document.getElementById('search-btn').addEventListener('click', function(){
-    // start reload spiner
-    toggleSpinner(true)
-    const inputField = document.getElementById('seach-Field');
-    const inputValue = inputField.value;
+    processSearch(6)
     if(inputValue === ''){
         alert('Please Enter your phone name');
     }
-    loadPones(inputValue);
+
     // inputField.addEventListener("keypress", function(event) {
     //             if (event.key === "Enter") {
     //               event.preventDefault();
     //               document.getElementById("search-btn").click();
     //             }
     //           });
-    inputField.value = ''
 
 })
 
@@ -95,9 +92,9 @@ const toggleSpinner = isLoading => {
     }
 }
 
-
+// not the best solution
 document.getElementById('btn-show-all').addEventListener('click', function(){
-    processSearch();
+    processSearch()
 })
 
 loadPones('iphone');
