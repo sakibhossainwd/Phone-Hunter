@@ -104,6 +104,17 @@ loadPones('iphone');
 
 
 // modal part
-
+const loadPhoneDetails = () => {
+    // const modalTitle = document.getElementById('modal-title');
+    
+    const detailsContainer = document.getElementById('details-container');
+    const modalBody = document.createElement('div');
+    modalBody.innerHTML = `
+    <h2>Brand: ${phone.brand}</h2>
+    `
+    console.log('modal is clicked');
+    detailsContainer.appendChild(modalBody);
+    
+}
 
 
