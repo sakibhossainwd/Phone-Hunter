@@ -121,12 +121,22 @@ const loadModalDetails = async(phoneSlug) => {
 
 const displayModalDetails= (phone) => {
     console.log(phone.brand)
-    // const modalTitle = document.getElementById('modal-title');
+    const modalTitle = document.getElementById('modal-title');
+    modalTitle.innerText = `${phone.name}`
     const detailsContainer = document.getElementById('details-container');
     detailsContainer.innerHTML = ''
     const modalBody = document.createElement('div');
     modalBody.innerHTML = `
-    <h3>Brand: ${phone.brand}</h3>
+    <h5>Brand: ${phone.brand}</h5>
+    <h5>MainFeatures:-</h5>
+    <ul>
+        <li>ChipSet: ${phone.mainFeatures.chipSet}</li>
+        <li>DisplaySize: ${phone.mainFeatures.displaySize}</li>
+        <li>Memory: ${phone.mainFeatures.memory}</li>
+        <li>Sensors: ${phone.mainFeatures.sensors[0]}</li>
+        <li>Storage: ${phone.mainFeatures.storage}</li>
+    </ul>
+    <h5>ReleaseDate: ${phone.releaseDate}</h5>
     `
     console.log('modal is clicked');
     detailsContainer.appendChild(modalBody);
