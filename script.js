@@ -1,24 +1,24 @@
 // async await
-const loadPones = async(inputValue) => {
+const loadPones = async(inputValue, dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     // console.log(url)
     // add error and async await
     try{
         const res = await fetch(url);
         const data = await res.json();
-        displayPhonesDetails(data.data)
+        displayPhonesDetails(data.data, dataLimit)
     }
     catch(error){
         console.log('Error:- ', error)
     }
 };
 
-const displayPhonesDetails = phones => {
+const displayPhonesDetails = (phones, dataLimit) => {
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
     // limited phone show
     const showMore = document.getElementById('show-more');
-    if(phones.length > 10){
+    if(dataLimit && phones.length > 10){
         phones =phones.slice(0, 6)
         showMore.classList.remove('d-none')
     }
@@ -57,6 +57,13 @@ const displayPhonesDetails = phones => {
     toggleSpinner(false)
 }
 
+const processSearch = (dataLimit) => {
+    toggleSpinner(true)
+    const inputField = document.getElementById('seach-Field');
+    const inputValue = inputField.value;
+    loadPones(inputValue, dataLimit);
+}
+
 
 // handle seaach button click
 document.getElementById('search-btn').addEventListener('click', function(){
@@ -88,5 +95,9 @@ const toggleSpinner = isLoading => {
     }
 }
 
-loadPones('iphone');
 
+document.getElementById('btn-show-all').addEventListener('click', function(){
+    processSearch();
+})
+
+loadPones('iphone');
