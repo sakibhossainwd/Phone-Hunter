@@ -20,8 +20,6 @@ const displayPhonesDetails = phones => {
     phones =phones.slice(0, 6)
     // dislay no phone found
     const noPhone = document.getElementById('no-phone');
-    // reloard spiner
-    const reloadSpiner = document.getElementById('reload-spiner')
     if(phones.length === 0){
         noPhone.classList.remove('d-none');
     }
@@ -47,27 +45,20 @@ const displayPhonesDetails = phones => {
         `
         phonesContainer.appendChild(div);
     });
+    // stop reload spiner
+    // toggleSpinner(false)
 }
 
-// const phoneDetails = () => {
-//     const inputField = document.getElementById('seach-Field');
-//     const inputValue = inputField.value;
-//     loadPones(inputValue);
-//     inputField.addEventListener("keypress", function(event) {
-//         if (event.key === "Enter") {
-//           event.preventDefault();
-//           document.getElementById("search-btn").click();
-//         }
-//       });
-      
-//     inputField.value = ""
-// }
 
-// modal part
-
+// handle seaach button click
 document.getElementById('search-btn').addEventListener('click', function(){
+    // start reload spiner
+    toggleSpinner(true)
     const inputField = document.getElementById('seach-Field');
     const inputValue = inputField.value;
+    if(inputValue === ''){
+        alert('Please Enter your phone name');
+    }
     loadPones(inputValue);
     // inputField.addEventListener("keypress", function(event) {
     //             if (event.key === "Enter") {
@@ -79,6 +70,15 @@ document.getElementById('search-btn').addEventListener('click', function(){
 
 })
 
+const toggleSpinner = isLoading => {
+    const reloadSpiner = document.getElementById('reload-spiner');
+    if(isLoading){
+        reloadSpiner.classList.remove('d-none')
+    }
+    // else{
+    //     reloadSpiner.classList.add('d-none')
+    // }
+}
 
 loadPones('iphone');
 

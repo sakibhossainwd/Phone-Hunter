@@ -24,7 +24,7 @@
                 <p class="w-75 m-auto mb-3">Fast software updates for many years: The biggest advantage iOS has over Android is its software updates:</p>
                 <div class="search-box d-lg-flex d-md-flex justify-content-center gap-3">
                       <input type="text" class="form-control py-2 ps-3 pe-5 w-50 rounded" id="seach-Field" placeholder="Search Your Phone">
-                    <button id="search-btn" onclick="phoneDetails()" class="btn btn-warning px-4 py-2">Search</button>
+                    <button id="search-btn" class="btn btn-warning px-4 py-2">Search</button>
                 </div>
         </div>
     </section>
@@ -40,9 +40,12 @@
             <p>Please try a new valid search</p>
           </div>
     </section>
-    <section>
-      <div id="reload-spiner" class="spinner-border text-warning d-flex justify-content-center" role="status">
-        <span class="visually-hidden">Loading...</span>
+    <!-- reload spiner part -->
+    <section id="reload-spiner" class="d-none">
+      <div style="height: 300px;" class="d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     </section>
 </main>
