@@ -23,7 +23,7 @@ const displayPhonesDetails = phones => {
         div.innerHTML = `
         <div class="card p-3">
         <img src="${phone.image}" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-body mt-3">
                   <h5 class="card-title fw-bold">Name: ${phone.phone_name}</h5>
                   <p class="fw-medium">Slug: ${phone.slug}</p>
                   <button onclick="loadPhoneDetails(${phone.slug}) "type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -51,9 +51,6 @@ const phoneDetails = () => {
 }
 
 // modal part
-const loadPhoneDetails = phoneSlug => {
-    console.log(phoneSlug)
-}
 
 
 loadPones('iphone');
