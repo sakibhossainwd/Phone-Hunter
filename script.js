@@ -16,12 +16,13 @@ const loadPones = async(inputValue) => {
 const displayPhonesDetails = phones => {
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
+    phones =phones.slice(0, 6)
     phones.forEach(phone => {
         // console.log(phone.slug);
         const div = document.createElement('div');
         div.classList.add("col");
         div.innerHTML = `
-        <div class="card p-3">
+        <div class="card p-3 mb-3">
         <img src="${phone.image}" class="card-img-top" alt="...">
                 <div class="card-body mt-3">
                   <h5 class="card-title fw-bold">Name: ${phone.phone_name}</h5>
