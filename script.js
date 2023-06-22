@@ -17,11 +17,19 @@ const displayPhonesDetails = phones => {
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
     // limited phone show
-    phones =phones.slice(0, 6)
+    const showMore = document.getElementById('show-more');
+    if(phones.length > 10){
+        phones =phones.slice(0, 6)
+        showMore.classList.remove('d-none')
+    }
+    else{
+        showMore.classList.add('d-none')
+    }
     // dislay no phone found
     const noPhone = document.getElementById('no-phone');
     if(phones.length === 0){
         noPhone.classList.remove('d-none');
+        // showMore.classList.add('d-none')
     }
     else {
         noPhone.classList.add('d-none');
