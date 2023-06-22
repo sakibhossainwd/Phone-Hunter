@@ -21,7 +21,7 @@ const displayPhonesDetails = phones => {
     // dislay no phone found
     const noPhone = document.getElementById('no-phone');
     if(phones.length === 0){
-
+        noPhone.classList.remove('d-none')
     }
     // display all phones
     phones.forEach(phone => {
