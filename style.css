@@ -1,6 +1,14 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+
+.text-orange {
+    color: #ff5e14;
+}
+.btn-orenge {
+    color: #ff5e14;
+}
+
 .cover img {
     width: 100vw;
     height: 60vh;
