@@ -46,7 +46,7 @@ const displayPhonesDetails = phones => {
         phonesContainer.appendChild(div);
     });
     // stop reload spiner
-    // toggleSpinner(false)
+    toggleSpinner(false)
 }
 
 
@@ -75,9 +75,9 @@ const toggleSpinner = isLoading => {
     if(isLoading){
         reloadSpiner.classList.remove('d-none')
     }
-    // else{
-    //     reloadSpiner.classList.add('d-none')
-    // }
+    else{
+        reloadSpiner.classList.add('d-none')
+    }
 }
 
 loadPones('iphone');
