@@ -19,11 +19,11 @@ const displayPhonesDetails = (phones, dataLimit) => {
     // limited phone show
     const showMore = document.getElementById('show-more');
     if(dataLimit && phones.length > 10){
-        phones =phones.slice(0, 6)
-        showMore.classList.remove('d-none')
+        phones = phones.slice(0, 3)
+        showMore.classList.add('d-none');
     }
     else{
-        showMore.classList.add('d-none')
+        showMore.classList.add('d-none');
     }
     // dislay no phone found
     const noPhone = document.getElementById('no-phone');
