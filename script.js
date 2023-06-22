@@ -17,6 +17,13 @@ const displayPhonesDetails = phones => {
     const phonesContainer = document.getElementById('phones-container');
     phonesContainer.innerHTML = ""
     phones =phones.slice(0, 6)
+
+    // dislay no phone found
+    const noPhone = document.getElementById('no-phone');
+    if(phones.length === 0){
+
+    }
+    // display all phones
     phones.forEach(phone => {
         // console.log(phone.slug);
         const div = document.createElement('div');
