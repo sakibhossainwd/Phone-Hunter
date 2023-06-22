@@ -36,21 +36,35 @@ const displayPhonesDetails = phones => {
     });
 }
 
-const phoneDetails = () => {
+// const phoneDetails = () => {
+//     const inputField = document.getElementById('seach-Field');
+//     const inputValue = inputField.value;
+//     loadPones(inputValue);
+//     inputField.addEventListener("keypress", function(event) {
+//         if (event.key === "Enter") {
+//           event.preventDefault();
+//           document.getElementById("search-btn").click();
+//         }
+//       });
+      
+//     inputField.value = ""
+// }
+
+// modal part
+
+document.getElementById('search-btn').addEventListener('click', function(){
     const inputField = document.getElementById('seach-Field');
     const inputValue = inputField.value;
     loadPones(inputValue);
-    inputField.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          document.getElementById("search-btn").click();
-        }
-      });
-      
-    inputField.value = ""
-}
+    // inputField.addEventListener("keypress", function(event) {
+    //             if (event.key === "Enter") {
+    //               event.preventDefault();
+    //               document.getElementById("search-btn").click();
+    //             }
+    //           });
+    inputField.value = ''
 
-// modal part
+})
 
 
 loadPones('iphone');
