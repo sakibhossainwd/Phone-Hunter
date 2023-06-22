@@ -23,6 +23,9 @@ const displayPhonesDetails = phones => {
     if(phones.length === 0){
         noPhone.classList.remove('d-none')
     }
+    else {
+        noPhone.classList.add('d-none')
+    }
     // display all phones
     phones.forEach(phone => {
         // console.log(phone.slug);
